@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import ModeSwitch from './components/ModeSwitch/ModeSwitch';
+
+
 
 function App() {
+
+  const [uiMode, setUiMode] = useState("light");
+  
+  function uiModeChangeHandler(clickedState){
+    if(uiMode!==clickedState){
+      if(clickedState==="light"){
+        setUiMode("light");
+      }
+      else{
+        setUiMode("dark");
+      }
+    }
+  };
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='App-header'>
+        <header id="App-name">Chord Maker</header>
+        <div id="App-mode-switch">
+          <ModeSwitch currentMode={uiMode} onModeChange={uiModeChangeHandler}></ModeSwitch>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
