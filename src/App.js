@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
 import './App.css';
 import ModeSwitch from './components/ModeSwitch/ModeSwitch';
+import Body from './components/Body/Body';
+
 
 
 
 function App() {
 
   const [uiMode, setUiMode] = useState("light");
-  
+
   function uiModeChangeHandler(clickedState){
     if(uiMode!==clickedState){
       if(clickedState==="light"){
@@ -28,6 +30,7 @@ function App() {
           <ModeSwitch currentMode={uiMode} onModeChange={uiModeChangeHandler}></ModeSwitch>
         </div>
       </div>
+      <Body currentMode={uiMode}></Body>
     </div>
   );
 };

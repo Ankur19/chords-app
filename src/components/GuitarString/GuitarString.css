@@ -1,0 +1,37 @@
+.guitarstring{
+    display:flex;
+    flex-direction:row;
+    padding:0px;
+}
+.guitarstring-fret{
+    border-right:4px solid grey;
+    height:25px;
+    margin:0px;
+    width:100px;
+}
+.guitarstring-last{
+    border-right:0px !important;
+}
+.selected-fret-line{
+    display:flex;
+    flex-direction:row;
+    margin:0px;
+    padding:0px;
+}
+.selected-fret-circle{
+    height:15px;
+    width:15px;
+    border-radius:50%;
+    border:1px solid grey;
+    background-color:rgb(75, 69, 69);
+    position:absolute;
+}
+.selected-fret-circle-parent{
+    height:15px;
+    width:15px;
+    padding:0px;
+    margin:0px;
+}
+hr{
+    width:98%;
+}

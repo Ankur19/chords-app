@@ -1,0 +1,10 @@
+#guitar-container{
+    display:inline-block;
+    text-align:center;
+    align-items:center;
+    margin-top:10vh;
+}
+#guitar-string-container{
+    display:flex;
+    flex-direction:column;
+}

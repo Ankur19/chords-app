@@ -1,0 +1,17 @@
+.body-main-div{
+    min-height:80vh;
+    text-align:center;
+    align-items: center;
+    display:flex;
+    flex-direction:column;
+}
+.body-dark{
+    background-color: #1E1E1E;
+}
+.body-light{
+    background-color: #E6ECF0;
+}
+#body-main-selctors-container{
+    display:flex;
+    flex-direction:row;
+}
