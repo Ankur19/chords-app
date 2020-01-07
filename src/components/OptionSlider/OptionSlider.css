@@ -1,0 +1,38 @@
+.option-slider-main-div{
+    display:flex;
+    flex-direction:column;
+    margin:10px;
+    background-color:rgba(125, 153, 228, 0.2);
+    border-radius:10px;
+}
+.option-slider-name{
+    font-weight:600;
+    font-size:20px;
+    margin:0px;
+    padding:0px;
+    background-color:rgba(125, 153, 228, 0.6);
+    padding:10px;
+    padding-bottom:5px;
+    margin-bottom:5px;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+}
+.option-slider-content{
+    display:flex;
+    flex-direction:row;
+}
+.option-slider-slider-container{
+    display:flex;
+    flex-direction:column;
+}
+.option-slider-slider-container img{
+    width:40px;
+}
+.option-slider-name-container{
+    display:flex;
+    flex-direction:column;
+}
+.option-slider-name-container div{
+    height:40px;
+    line-height:40px;
+}
