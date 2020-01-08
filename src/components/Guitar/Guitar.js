@@ -1,8 +1,7 @@
 import React from "react";
 import "./Guitar.css";
 import GuitarString from "../GuitarString/GuitarString";
-
-import guitarchords from "guitarchords";
+import guitarChords from "guitarchords";
 
 const defaultTuning = ["E", "A", "D", "G", "B", "E"];
 
@@ -15,7 +14,7 @@ function Guitar(props){
         guitarStrings[i] = <GuitarString key={i} numFrets = {props.numFrets}></GuitarString>
     }
 
-    guitarchords.prettyPrint();
+    let tuning = new guitarChords.Tuning(...defaultTuning);
     let scaleUsed = "";
     if(props.scale==="Maj"){
         scaleUsed = "MAJOR"
