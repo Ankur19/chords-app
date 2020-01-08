@@ -1,8 +1,13 @@
 #guitar-container{
-    display:inline-block;
+    display:flex;
+    flex-direction:row;
     text-align:center;
     align-items:center;
     margin:10vh;
+}
+#guitar-tune-container{
+    display:flex;
+    flex-direction:column;
 }
 #guitar-string-container{
     display:flex;
