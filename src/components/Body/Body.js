@@ -9,6 +9,8 @@ const notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
 const scales = ["Maj"];
 const stringNumbers = ["3","4", "5", "6", "7", "8"];
 const numberFrets = ["2","3","4","5","6"];
+const startFretNumbers = [1,2,3,4,5,6,7,8,9,10,11];
+const defaultTuning = ["E", "A", "D", "G", "B", "E"];
 
 function Body(props){
 
@@ -23,6 +25,8 @@ function Body(props){
     const [scale, setScale] = useState(0);
     const [numStrings, setNumStrings] = useState(3);
     const [numFrets, setNumFrets] = useState(2);
+    const [startFret, setStartFret] = useState(0);
+    const [tuning, setTuning] = useState(defaultTuning);
 
     function chordChangeHandler(index){
         if(index !==chord){
@@ -44,6 +48,11 @@ function Body(props){
             setNumFrets(index);
         }
     }
+    function startFretChangeHandler(index){
+        if(index !==startFret){
+            setStartFret(index);
+        }
+    }
 
     let selectors = [];
     selectors.push(<OptionSlider key={0} currentMode={props.currentMode} sliderName = "Num Strings" sliderOptions={stringNumbers} currentSelected={numStrings} onOptionChange={stringNumChangeHandler}></OptionSlider>);
@@ -54,7 +63,8 @@ function Body(props){
     
     return <div className={mainBodyClass}>
         <div id="body-main-selectors-container">{selectors}</div>
-        <Guitar chord={notes[chord]} scale={scales[scale]} numStrings={parseInt(stringNumbers[numStrings])} numFrets={parseInt(numberFrets[numFrets])} ></Guitar>
+        <Guitar tuning={tuning} chord={notes[chord]} scale={scales[scale]} numStrings={parseInt(stringNumbers[numStrings])} numFrets={parseInt(numberFrets[numFrets])} startFret={startFretNumbers[startFret]}></Guitar>
+        <OptionSlider currentMode={props.currentMode} sliderName = "Start Fret" sliderOptions={startFretNumbers} currentSelected={startFret} onOptionChange={startFretChangeHandler}></OptionSlider>
     </div>
 }
 

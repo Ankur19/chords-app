@@ -11,12 +11,43 @@
 }
 .guitarstring-last{
     border-right:0px !important;
+    
+}
+.guitarstring-last hr{
+    border-right:1px solid grey;
+    border-left:0px;
+    height:25px;
 }
 .selected-fret-line{
     display:flex;
     flex-direction:row;
     margin:0px;
     padding:0px;
+}
+.selected-fret-line p{
+    margin:0px;
+    padding:0px;
+    vertical-align: center;
+    line-height:40px;
+    width:50%;
+    font-weight:700;
+}
+.selected-fret-circle-open-container{
+    margin:0px;
+    padding:0px;
+    vertical-align: center;
+    line-height:40px;
+    width:50%;
+    font-weight:700;
+}
+.selected-fret-circle-open{
+    display:inline-block;
+    background-color:rgb(75, 69, 69);
+    border-radius:50%;
+    height:17px;
+    width:17px;
+    padding:0px;
+    margin:0px;
 }
 .selected-fret-circle{
     height:15px;

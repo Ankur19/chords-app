@@ -1,0 +1,7 @@
+#tuning-main-div{
+    display:flex;
+    flex-direction:column;
+}
+.tuning-note-input{
+    height:40px;
+}
