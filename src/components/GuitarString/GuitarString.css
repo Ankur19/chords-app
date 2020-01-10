@@ -66,3 +66,6 @@
 hr{
     width:98%;
 }
+.guitar-string-hr-selected-left{
+    border-right:0px !important;
+}

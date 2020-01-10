@@ -1,8 +1,7 @@
 .App {
   text-align: center;
+  justify-content:space-evenly;
 }
-
-
 .App-header {
   background-color: #282c34;
   min-height: 10vh;
@@ -19,5 +18,9 @@
 }
 #App-mode-switch{
   padding-right:2vh;
+}
+
+*:focus {
+  outline: none;
 }
 

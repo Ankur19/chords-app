@@ -1,7 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
 import "./Guitar.css";
 import GuitarString from "../GuitarString/GuitarString";
-import guitarChords from "guitarchords";
+import Tuning from "../Tuning/Tuning";
+
 
 
 const stringNotes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
@@ -28,22 +29,10 @@ function Guitar(props){
     //props.numFrets --this is to pass to guitarStrings to determine the width
     //props.tuning --this is for the module input
     //use custom node module to get the shapes
-    let tuning = new guitarChords.Tuning(...props.tuning);
-    let scaleUsed = "";
-    if(props.scale==="Maj"){
-        scaleUsed = "MAJOR"
-    }
-    let chordPositions = guitarChords.getPositions(tuning, props.chord, scaleUsed, props.startFret, props.numFrets);
-
-    //use state for all the positions available
-    const[positions, setPositions] = useState({current: 0, all:[...new Set(chordPositions)]});
-    function positionChangeHandler(index){
-        let positionsCopy = [...positions.all];
-        setPositions({current:index, all:positionsCopy});
-    }
+    
     let chordNotes = new Array(props.numStrings);
-    if(positions.all.length>0){
-        chordNotes = positions.all[positions.current].split("-");
+    if(props.positions.all.length>0){
+        chordNotes = props.positions.all[props.positions.current].split("-");
     }
     else{
         for(let i=0;i<props.numStrings;i++){
@@ -56,7 +45,6 @@ function Guitar(props){
         let fretNotes = getFretNotes(props.tuning[i], props.startFret, props.numFrets)
         guitarStrings[i] = <GuitarString key={i} numFrets = {props.numFrets} currentSelectedNote={chordNotes[i]} fretNotes={fretNotes}></GuitarString>
     }
-
     let currentNoteDivs = new Array(props.numStrings);
 
     for(let i=0;i<chordNotes.length;i++){
@@ -64,28 +52,29 @@ function Guitar(props){
     }
 
     let positionOptions = [];
-    if(positions.all.length===0){
+    if(props.positions.all.length===0){
         positionOptions.push(<option key ={0} value={0}>None</option>)
     }
     else{
-        for(let i=0;i<positions.all.length;i++){
-            if(i===positions.current){
-                positionOptions.push(<option key ={i} value={i} >{positions.all[i]}</option>)
+        for(let i=0;i<props.positions.all.length;i++){
+            if(i===props.positions.current){
+                positionOptions.push(<option key ={i} value={i} >{props.positions.all[i]}</option>)
             }
             else{
-                positionOptions.push(<option key ={i} value={i}>{positions.all[i]}</option>)
+                positionOptions.push(<option key ={i} value={i}>{props.positions.all[i]}</option>)
             }
             
         }
     }
     return <div id="guitar-container">
+        <Tuning numStrings={props.numStrings} tuning={props.tuning}></Tuning>
             <div id="guitar-string-container">{guitarStrings}</div>
             <div id="guitar-tune-container">
                 {currentNoteDivs}
             </div>
             <div id="guitar-chord-positions-div">
-                <div>Available positions</div>
-                <select id="guitar-positions-select" value={positions.current} onChange={(e)=>positionChangeHandler(e.target.value)}>{positionOptions}</select>
+                <div id="guitar-positions-select-title">Available Positions</div>
+                <select id="guitar-positions-select" value={props.positions.current} onChange={(e)=>props.onPositionChange(e.target.value)}>{positionOptions}</select>
             </div>
         </div>
 };

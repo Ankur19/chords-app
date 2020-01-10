@@ -1,4 +1,5 @@
 import React from "react";
+import "./Tuning.css"
 
 function Tuning(props){
     //props.numStrings: --provides the number of strings
@@ -7,7 +8,9 @@ function Tuning(props){
 
     let notesArray = new Array(props.numStrings);
     for(let i=0;i<props.numStrings;i++){
-        notesArray[i] = <input type="text" className="tuning-note-input" value={props.tuning[i]} onChange={e=>{props.updateTuning(e.target.value, i)}}></input>
+        notesArray[i] = <input key={i} type="text" className="tuning-note-input" value={props.tuning[i]} onChange={e=>{props.updateTuning(e.target.value, i)}}></input>
     }
-return <div id="tuning-main-div">{notesArray}</div>
+return <div id="tuning-main-container"><p>Tuning</p><div id="tuning-main-div">{notesArray}</div></div>;
 }
+
+export default Tuning;
