@@ -29,16 +29,20 @@ function OptionSelector(props){
     if(props.selectorOptions[props.currentSelected].split("").length >=3){
         optionSpanClass = "options-selector-current-span selector-span-small";
     }
-
-return <div className="options-selector-container">
-    <div className="options-selector-name">{props.selectorName}</div>
-    <div className="options-selector-current">
-        <img className="options-selector-arrow-left" src={process.env.PUBLIC_URL + "/left-arrow.png"} alt="left" onClick={()=>{props.onOptionChange(previous)}}></img>
-        <span className={optionSpanClass}>{props.selectorOptions[props.currentSelected]}</span>
-        <img className="options-selector-arrow-right" src={process.env.PUBLIC_URL + "/right-arrow.png"} alt="right" onClick={()=>{props.onOptionChange(next)}}></img>
-    </div>
-    <div className="options-selector-options"></div>
-</div>;
+    let optionSelectorNameClass = "options-selector-name";
+    if(props.currentMode==="dark"){
+        optionSelectorNameClass += " options-selector-name-dark";
+        optionSpanClass+= " options-selector-current-dark";
+    }
+    return <div className="options-selector-container">
+        <div className={optionSelectorNameClass}>{props.selectorName}</div>
+        <div className="options-selector-current">
+            <img className="options-selector-arrow-left" src={process.env.PUBLIC_URL + "/left-arrow.png"} alt="left" onClick={()=>{props.onOptionChange(previous)}}></img>
+            <span className={optionSpanClass}>{props.selectorOptions[props.currentSelected]}</span>
+            <img className="options-selector-arrow-right" src={process.env.PUBLIC_URL + "/right-arrow.png"} alt="right" onClick={()=>{props.onOptionChange(next)}}></img>
+        </div>
+        <div className="options-selector-options"></div>
+    </div>;
 
 }
 

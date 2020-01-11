@@ -20,11 +20,13 @@ function App() {
       }
     }
   };
-
-
+let appHeaderClass="App-header";
+if(uiMode==="dark"){
+  appHeaderClass += " app-header-dark";
+}
   return (
     <div className="App">
-      <div className='App-header'>
+      <div className={appHeaderClass}>
         <header id="App-name">Chord Maker</header>
         <div id="App-mode-switch">
           <ModeSwitch currentMode={uiMode} onModeChange={uiModeChangeHandler}></ModeSwitch>

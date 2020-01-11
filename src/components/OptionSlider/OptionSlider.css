@@ -2,6 +2,8 @@
     display:flex;
     flex-direction:column;
     margin:10px;
+    max-width:50vw;
+    align-self:center;
     background-color:rgba(125, 153, 228, 0.2);
     border-radius:10px;
     height:120px;
@@ -54,4 +56,7 @@
     font-size:20px;
     line-height:40px;
 }
-
+.option-slider-name-dark{
+    color:rgba(255, 255, 255, 0.808);
+    font-weight:600;
+}

@@ -1,14 +1,16 @@
 .guitarstring{
     display:flex;
     flex-direction:row;
-    padding:0px;
+    align-items:center;
+    
 }
 .guitarstring-fret{
     border-right:4px solid grey;
-    height:40px;
+    padding:10px 0px !important;
     margin:0px;
     width:100px;
 }
+
 .guitarstring-last{
     border-right:0px !important;
     
@@ -16,7 +18,13 @@
 .guitarstring-last hr{
     border-right:1px solid grey;
     border-left:0px;
-    height:25px;
+    line-height:25px;
+}
+.guitarstring-first hr{
+    border-right:1px solid grey;
+    border-left:0px;
+    height:0px;
+    line-height:25px;
 }
 .selected-fret-line{
     display:flex;
@@ -37,6 +45,7 @@
     padding:0px;
     vertical-align: center;
     line-height:40px;
+    height:100%;
     width:50%;
     font-weight:700;
 }
@@ -62,10 +71,21 @@
     width:15px;
     padding:0px;
     margin:0px;
+    font-weight:700;
 }
 hr{
     width:98%;
 }
 .guitar-string-hr-selected-left{
     border-right:0px !important;
+}
+.guitarstring-fret-dark hr{
+    border-color:white;
+}
+.guitarstring-fret-dark{
+    border-color:rgba(238, 218, 218, 0.6);
+}
+.selected-fret-circle-dark{
+    background-color:white;
+    border:0px;
 }

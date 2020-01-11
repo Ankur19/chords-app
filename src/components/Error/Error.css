@@ -1,0 +1,15 @@
+.error-main-div{
+    position:absolute;
+    top:40vh;
+    left:42vw;
+    height:20px;
+    opacity:0;
+    font-weight:600;
+    color:white;
+    background-color:rgba(255, 0, 0, 0.616);
+    border-radius:10px;
+    padding:10px;
+}
+.error-show{
+    opacity:0.6 !important;
+}

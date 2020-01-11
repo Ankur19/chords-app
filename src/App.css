@@ -3,18 +3,22 @@
   justify-content:space-evenly;
 }
 .App-header {
-  background-color: #282c34;
+  background-color: rgba(151, 65, 65, 0.8);/*282c34*/
   min-height: 10vh;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content:space-between;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgba(255, 255, 255, 0.788);
+}
+.app-header-dark{
+  background-color: #282c34ef;
 }
 
 #App-name{
   padding-left:2vh;
+  font-family:Comic Sans MS;
 }
 #App-mode-switch{
   padding-right:2vh;

@@ -40,10 +40,10 @@ function Guitar(props){
         }
     }
 
-    let guitarStrings = new Array(props.numStrings);
+    let guitarStrings = [];
     for(let i=0;i<props.numStrings;i++){
         let fretNotes = getFretNotes(props.tuning[i], props.startFret, props.numFrets)
-        guitarStrings[i] = <GuitarString key={i} numFrets = {props.numFrets} currentSelectedNote={chordNotes[i]} fretNotes={fretNotes}></GuitarString>
+        guitarStrings.push(<GuitarString currentMode={props.currentMode} key={i} numFrets = {props.numFrets} currentSelectedNote={chordNotes[i]} fretNotes={fretNotes}></GuitarString>);
     }
     let currentNoteDivs = new Array(props.numStrings);
 
@@ -66,9 +66,17 @@ function Guitar(props){
             
         }
     }
+
+    let fretNumbering = [];
+    for(let i=0;i<props.fretNames.length;i++){
+        fretNumbering.push(<div key={i} className="guitar-fret-name">{props.fretNames[i]}</div>)
+    }
     return <div id="guitar-container">
-        <Tuning numStrings={props.numStrings} tuning={props.tuning}></Tuning>
-            <div id="guitar-string-container">{guitarStrings}</div>
+        <Tuning currentMode={props.currentMode} numStrings={props.numStrings} tuning={props.tuning} updateTuning={props.onTuningUpdate}></Tuning>
+            <div id="guitar-string-container">
+                {guitarStrings}
+                <div id="guitar-fret-names-main-div">{fretNumbering}</div>
+                </div>
             <div id="guitar-tune-container">
                 {currentNoteDivs}
             </div>
