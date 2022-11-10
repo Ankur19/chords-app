@@ -88,7 +88,7 @@
     ]
   },
   "devDependencies": {
-    "electron": "^11.5.0",
+    "electron": "^18.3.7",
     "foreman": "^3.0.1"
   },
   "jest": {
